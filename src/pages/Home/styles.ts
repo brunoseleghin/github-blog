@@ -5,8 +5,10 @@ export const HomeContainer = styled.div`
   margin: 0 auto;
 
   main {
-    margin-top: -85px;
     display: flex;
+    max-width: 864px;
+    flex-direction: column;
+    margin: -85px auto;
   }
 `
 
@@ -14,7 +16,7 @@ export const Profile = styled.div`
   position: relative;
   display: flex;
   gap: 32px;
-  margin: 0 auto;
+
   width: 864px;
   padding: 32px 40px;
   background: ${({ theme }) => theme['base-profile']};
@@ -76,5 +78,25 @@ export const Text = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme['base-subtitle']};
   font-weight: normal;
+  line-height: 160%;
+`
+
+export const PublicationsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 72px;
+`
+
+export const Publications = styled.span`
+  color: ${({ theme }) => theme['base-title']};
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 160%;
+`
+
+export const NumbersOfPublications = styled.span`
+  color: ${({ theme }) => theme['base-span']};
+  font-size: 0.875rem;
+  font-weight: 400;
   line-height: 160%;
 `

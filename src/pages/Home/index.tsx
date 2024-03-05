@@ -7,6 +7,9 @@ import {
   Bio,
   Text,
   Info,
+  PublicationsContainer,
+  Publications,
+  NumbersOfPublications,
 } from './styles'
 
 import { Header } from '../../components/Header'
@@ -86,6 +89,11 @@ export function Home() {
             </Info>
           </div>
         </Profile>
+
+        <PublicationsContainer>
+          <Publications>Publicações</Publications>
+          <NumbersOfPublications>6 publicações</NumbersOfPublications>
+        </PublicationsContainer>
       </main>
     </HomeContainer>
   )
