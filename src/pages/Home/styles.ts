@@ -9,6 +9,18 @@ export const HomeContainer = styled.div`
     max-width: 864px;
     flex-direction: column;
     margin: -85px auto;
+
+    input {
+      padding: 12px 16px;
+      background-color: ${({ theme }) => theme['base-input']};
+      border: 1px solid ${({ theme }) => theme['base-border']};
+      border-radius: 6px;
+      color: ${({ theme }) => theme['base-text']};
+
+      &::placeholder {
+        color: ${({ theme }) => theme['base-label']};
+      }
+    }
   }
 `
 
@@ -34,6 +46,17 @@ export const NameContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 8px;
 
+  div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid ${({ theme }) => theme['base-profile']};
+
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.blue};
+    }
+  }
+
   a {
     font-size: 12px;
     font-weight: bold;
@@ -41,7 +64,6 @@ export const NameContainer = styled.div`
     text-transform: uppercase;
     color: ${({ theme }) => theme.blue};
     text-decoration: none;
-    margin-right: 8px;
   }
 `
 
@@ -92,6 +114,7 @@ export const Publications = styled.span`
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 160%;
+  margin-bottom: 12px;
 `
 
 export const NumbersOfPublications = styled.span`
@@ -99,4 +122,5 @@ export const NumbersOfPublications = styled.span`
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 160%;
+  margin-bottom: 12px;
 `

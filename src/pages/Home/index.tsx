@@ -94,6 +94,8 @@ export function Home() {
           <Publications>Publicações</Publications>
           <NumbersOfPublications>6 publicações</NumbersOfPublications>
         </PublicationsContainer>
+
+        <input type="text" placeholder="Buscar conteúdo" />
       </main>
     </HomeContainer>
   )
