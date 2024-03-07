@@ -10,6 +10,11 @@ import {
   PublicationsContainer,
   Publications,
   NumbersOfPublications,
+  Post,
+  Title,
+  Created,
+  Resume,
+  SectionPost,
 } from './styles'
 
 import { Header } from '../../components/Header'
@@ -95,7 +100,81 @@ export function Home() {
           <NumbersOfPublications>6 publicações</NumbersOfPublications>
         </PublicationsContainer>
 
-        <input type="text" placeholder="Buscar conteúdo" />
+        <input type="text" placeholder="Buscar conteúdo" required />
+
+        <SectionPost>
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+
+          <Post>
+            <div>
+              <Title>JavaScript data types and data structures</Title>
+              <Created>Há 1 dia</Created>
+            </div>
+            <Resume>
+              Programming languages all have built-in data structures, but these
+              often differ from one language to another. This article attempts
+              to list the built-in data structures available in
+            </Resume>
+          </Post>
+        </SectionPost>
       </main>
     </HomeContainer>
   )

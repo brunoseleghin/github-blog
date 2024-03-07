@@ -124,3 +124,56 @@ export const NumbersOfPublications = styled.span`
   line-height: 160%;
   margin-bottom: 12px;
 `
+
+export const SectionPost = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+
+  margin-top: 48px;
+  margin-bottom: 100px;
+`
+
+export const Post = styled.div`
+  background-color: ${({ theme }) => theme['base-post']};
+  padding: 32px;
+  border-radius: 10px;
+  border: 2px solid ${({ theme }) => theme['base-post']};
+
+  div {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid ${({ theme }) => theme['base-label']};
+  }
+`
+
+export const Title = styled.p`
+  color: ${({ theme }) => theme['base-title']};
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 160%;
+  max-width: 270px;
+`
+
+export const Created = styled.span`
+  color: ${({ theme }) => theme['base-span']};
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 160%;
+`
+
+export const Resume = styled.p`
+  color: ${({ theme }) => theme['base-text']};
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 160%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 352px;
+`
