@@ -47,6 +47,7 @@ export const NameContainer = styled.div`
   margin-bottom: 8px;
 
   div {
+    height: 21px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -82,6 +83,8 @@ export const Bio = styled.p`
   font-weight: normal;
   line-height: 160%;
   margin-bottom: 24px;
+
+  width: 612px;
 `
 
 export const Info = styled.div`

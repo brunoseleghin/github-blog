@@ -27,9 +27,44 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useTheme } from 'styled-components'
+import { useEffect, useState } from 'react'
+
+interface User {
+  id: number
+  avatar: string
+  name: string
+  bio: string
+  login: string
+  company: string
+  followers: number
+  url: string
+}
 
 export function Home() {
   const theme = useTheme()
+  const [user, setUser] = useState<User>({} as User)
+
+  async function getUser() {
+    const response = await fetch('https://api.github.com/users/brunoseleghin')
+    const data = await response.json()
+
+    const userData = {
+      id: data.id,
+      avatar: data.avatar_url,
+      name: data.name,
+      bio: data.bio,
+      company: data.company,
+      followers: data.followers,
+      login: data.login,
+      url: data.html_url,
+    } as User
+
+    setUser(userData)
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   return (
     <HomeContainer>
@@ -37,17 +72,13 @@ export function Home() {
 
       <main>
         <Profile>
-          <Avatar src="https://github.com/brunoseleghin.png" />
+          <Avatar src={user.avatar} />
 
           <div>
             <NameContainer>
-              <Name>Bruno Seleghin</Name>
+              <Name>{user.name}</Name>
               <div>
-                <a
-                  href="https://github.com/brunoseleghin"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={user.url} target="_blank" rel="noreferrer">
                   Github
                 </a>
                 <FontAwesomeIcon
@@ -58,11 +89,7 @@ export function Home() {
               </div>
             </NameContainer>
 
-            <Bio>
-              {`I'm passionate about technology and programming. I always like to
-              feel that I'm evolving, for this reason I always seek to be
-              learning something. 👨‍💻`}
-            </Bio>
+            <Bio>{user.bio}</Bio>
 
             <Info>
               <div>
@@ -71,7 +98,7 @@ export function Home() {
                   color={theme['base-label']}
                   fontSize={18}
                 />
-                <Text>brunoseleghin</Text>
+                <Text>{user.login}</Text>
               </div>
 
               <div>
@@ -80,7 +107,7 @@ export function Home() {
                   color={theme['base-label']}
                   fontSize={18}
                 />
-                <Text>Totvs</Text>
+                <Text>{user.company}</Text>
               </div>
 
               <div>
@@ -89,7 +116,7 @@ export function Home() {
                   color={theme['base-label']}
                   fontSize={18}
                 />
-                <Text>32 seguidores</Text>
+                <Text>{user.followers}</Text>
               </div>
             </Info>
           </div>
