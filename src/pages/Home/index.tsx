@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
-import Markdown from 'react-markdown'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import {
   HomeContainer,
@@ -14,24 +21,13 @@ import {
   PublicationsContainer,
   Publications,
   NumbersOfPublications,
-  Post,
-  Title,
-  Created,
-  Resume,
   SectionPost,
 } from './styles'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faArrowUpRightFromSquare,
-  faBuilding,
-  faUserGroup,
-} from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
 import { Header } from '../../components/Header'
-
-import { dateFormatter } from '../../utils/formatter'
+import { api } from '../../lib/axios'
+import { useDebounce } from '../../hooks/useDebounce'
+import { Post } from '../../components/Post'
 
 interface User {
   id: number
@@ -54,43 +50,57 @@ interface Posts {
 export function Home() {
   const [user, setUser] = useState<User>({} as User)
   const [posts, setPosts] = useState<Posts[]>([])
+  const [query, setQuery] = useState('')
+  const debouncedQuery = useDebounce(query)
 
   const theme = useTheme()
-
   const quantityOfPosts = posts.length
 
-  async function getUser() {
-    const response = await fetch('https://api.github.com/users/brunoseleghin')
-    const data = await response.json()
+  async function loadUser() {
+    const response = await api.get('users/brunoseleghin')
+    const data = await response.data
 
-    const userData = {
-      id: data.id,
-      avatar: data.avatar_url,
-      name: data.name,
-      bio: data.bio,
-      company: data.company,
-      followers: data.followers,
-      login: data.login,
-      url: data.html_url,
-    } as User
+    if (data) {
+      const userData = {
+        id: data.id,
+        avatar: data.avatar_url,
+        name: data.name,
+        bio: data.bio,
+        company: data.company,
+        followers: data.followers,
+        login: data.login,
+        url: data.html_url,
+      } as User
 
-    setUser(userData)
+      setUser(userData)
+    }
   }
 
-  async function getPosts() {
-    const response = await fetch(
-      `https://api.github.com/search/issues?q=repo:brunoseleghin/github-blog`,
-    )
-    const data = await response.json()
+  async function fetchPosts(query?: string) {
+    const response = await api.get('search/issues', {
+      headers: {
+        Accept: 'application/vnd.github+json',
+      },
+      params: {
+        sort: 'created',
+        order: 'desc',
+        q: query
+          ? `${query} repo:brunoseleghin/github-blog`
+          : 'repo:brunoseleghin/github-blog',
+      },
+    })
 
-    setPosts(data.items)
+    setPosts(response.data.items)
   }
 
   useEffect(() => {
-    getUser()
-    getPosts()
-  }, [])
+    fetchPosts(debouncedQuery)
+  }, [debouncedQuery])
 
+  useEffect(() => {
+    loadUser()
+    fetchPosts()
+  }, [])
   return (
     <HomeContainer>
       <Header />
@@ -154,23 +164,16 @@ export function Home() {
           </NumbersOfPublications>
         </PublicationsContainer>
 
-        <input type="text" placeholder="Buscar conteúdo" required />
+        <input
+          type="text"
+          placeholder="Buscar conteúdo"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
 
         <SectionPost>
           {posts.map((post) => {
-            return (
-              <Post key={post.id}>
-                <div>
-                  <Title>{post.title}</Title>
-                  <Created>
-                    {dateFormatter.format(new Date(post.created_at))}
-                  </Created>
-                </div>
-                <Resume>
-                  <Markdown>{post.body}</Markdown>
-                </Resume>
-              </Post>
-            )
+            return <Post key={post.id} data={post} />
           })}
         </SectionPost>
       </main>
