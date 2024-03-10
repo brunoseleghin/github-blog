@@ -24,10 +24,9 @@ import {
   SectionPost,
 } from './styles'
 
-import { Header } from '../../components/Header'
 import { api } from '../../lib/axios'
 import { useDebounce } from '../../hooks/useDebounce'
-import { Post } from '../../components/Post'
+import { PostCard } from '../../components/PostCard'
 
 interface User {
   id: number
@@ -103,8 +102,6 @@ export function Home() {
   }, [])
   return (
     <HomeContainer>
-      <Header />
-
       <main>
         <Profile>
           <Avatar src={user.avatar} />
@@ -173,7 +170,7 @@ export function Home() {
 
         <SectionPost>
           {posts.map((post) => {
-            return <Post key={post.id} data={post} />
+            return <PostCard key={post.id} data={post} />
           })}
         </SectionPost>
       </main>
