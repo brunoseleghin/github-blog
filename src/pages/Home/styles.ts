@@ -162,6 +162,13 @@ export const Title = styled.p`
   font-weight: 700;
   line-height: 160%;
   max-width: 270px;
+
+  height: 64px;
+  width: 283px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 `
 
 export const Created = styled.span`
@@ -176,7 +183,12 @@ export const Resume = styled.p`
   font-size: 1rem;
   font-weight: 400;
   line-height: 160%;
-  text-overflow: ellipsis;
-  overflow: hidden;
   max-width: 352px;
+
+  height: 120px;
+  width: 352px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
 `
