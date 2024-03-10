@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const PostContainer = styled.div`
+export const PostCardContainer = styled.div`
   background-color: ${({ theme }) => theme['base-post']};
   padding: 32px;
   border-radius: 10px;

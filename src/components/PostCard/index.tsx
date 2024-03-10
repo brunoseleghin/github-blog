@@ -2,9 +2,9 @@ import { formatDistance } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import Markdown from 'react-markdown'
 
-import { PostContainer, Title, Created, Resume } from './styles'
+import { PostCardContainer, Title, Created, Resume } from './styles'
 
-interface PostProps {
+interface PostCardProps {
   data: {
     id: number
     title: string
@@ -13,14 +13,14 @@ interface PostProps {
   }
 }
 
-export function Post({ data }: PostProps) {
+export function PostCard({ data }: PostCardProps) {
   const createdAt = formatDistance(data.created_at, new Date(), {
     addSuffix: true,
     locale: ptBR,
   })
 
   return (
-    <PostContainer>
+    <PostCardContainer>
       <div>
         <Title>{data.title}</Title>
         <Created>{createdAt}</Created>
@@ -28,6 +28,6 @@ export function Post({ data }: PostProps) {
       <Resume>
         <Markdown>{data.body}</Markdown>
       </Resume>
-    </PostContainer>
+    </PostCardContainer>
   )
 }
