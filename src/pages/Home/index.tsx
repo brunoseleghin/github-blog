@@ -44,6 +44,7 @@ interface Posts {
   title: string
   created_at: string
   body: string
+  number: number
 }
 
 export function Home() {

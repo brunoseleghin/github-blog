@@ -23,4 +23,9 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem
   }
+
+  a:-webkit-any-link {
+    color: none;
+    text-decoration: none;
+}
 `
