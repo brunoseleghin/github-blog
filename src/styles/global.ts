@@ -27,5 +27,5 @@ export const GlobalStyle = createGlobalStyle`
   a:-webkit-any-link {
     color: none;
     text-decoration: none;
-}
+  }
 `
