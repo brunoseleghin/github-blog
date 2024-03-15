@@ -5,5 +5,6 @@ export const api = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
     Authorization: `Bearer ${token}`,
+    Accept: 'application/vnd.github+json',
   },
 })
