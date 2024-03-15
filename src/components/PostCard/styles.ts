@@ -54,4 +54,9 @@ export const Resume = styled.span`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
+
+  a {
+    color: ${({ theme }) => theme.blue};
+    text-decoration: underline;
+  }
 `

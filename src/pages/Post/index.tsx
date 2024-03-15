@@ -33,6 +33,7 @@ interface DataProps {
   }
   comments: number
   body: string
+  html_url: string
 }
 
 export function Post() {
@@ -82,7 +83,7 @@ export function Post() {
             </Link>
 
             <div>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href={data.html_url} target="_blank" rel="noreferrer">
                 Ver no Github
               </a>
               <FontAwesomeIcon

@@ -35,6 +35,11 @@ export const Links = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+    border-bottom: 1px solid ${({ theme }) => theme['base-profile']};
+
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.blue};
+    }
   }
 `
 
