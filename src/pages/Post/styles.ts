@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const PostContainer = styled.main`
+export const PostContainer = styled.main``
+
+export const PostInfoContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: -85px auto;
@@ -62,4 +64,58 @@ export const Text = styled.p`
   color: ${({ theme }) => theme['base-span']};
   font-weight: normal;
   line-height: 160%;
+`
+export const Content = styled.div`
+  margin: 80px 0px;
+  padding: 40px 32px;
+  width: 864px;
+
+  margin: 80px auto;
+
+  p {
+    margin: 5px 0;
+    font-family: 'Nunito', sans-serif;
+    color: ${({ theme }) => theme['base-text']};
+    font-size: 1rem;
+    line-height: 160%;
+    font-style: normal;
+
+    a {
+      color: ${({ theme }) => theme.blue};
+      text-decoration: underline;
+    }
+  }
+
+  h2,
+  h3 {
+    color: ${({ theme }) => theme.blue};
+    margin: 20px 0;
+  }
+
+  blockquote {
+    border-left: 5px solid ${({ theme }) => theme['base-border']};
+    padding: 2px 20px;
+    margin: 10px 0;
+    opacity: 80%;
+
+    em {
+      display: flex;
+    }
+  }
+
+  ul {
+    margin: 10px 30px;
+
+    li {
+      line-height: 160%;
+    }
+  }
+
+  code {
+    display: flex;
+    padding: 16px;
+    background-color: ${({ theme }) => theme['base-post']};
+    border-radius: 2px;
+    margin: 15px 0;
+  }
 `

@@ -11,8 +11,18 @@ import {
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { formatDistance } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import Markdown from 'react-markdown'
 
-import { Info, Links, PostContainer, PostInfo, Title, Text } from './styles'
+import {
+  Info,
+  Links,
+  PostContainer,
+  PostInfo,
+  Title,
+  Text,
+  Content,
+  PostInfoContainer,
+} from './styles'
 import { api } from '../../lib/axios'
 
 interface DataProps {
@@ -22,6 +32,7 @@ interface DataProps {
     login: string
   }
   comments: number
+  body: string
 }
 
 export function Post() {
@@ -56,62 +67,68 @@ export function Post() {
 
   return (
     <PostContainer>
-      <PostInfo>
-        <Links>
-          <Link to={'/'}>
+      <PostInfoContainer>
+        <PostInfo>
+          <Links>
+            <Link to={'/'}>
+              <div>
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
+                  color={theme.blue}
+                  fontSize={12}
+                />
+                <span>Voltar</span>
+              </div>
+            </Link>
+
             <div>
+              <a href="" target="_blank" rel="noreferrer">
+                Ver no Github
+              </a>
               <FontAwesomeIcon
-                icon={faChevronLeft}
+                icon={faArrowUpRightFromSquare}
                 color={theme.blue}
                 fontSize={12}
               />
-              <span>Voltar</span>
             </div>
-          </Link>
+          </Links>
 
-          <div>
-            <a href="" target="_blank" rel="noreferrer">
-              Ver no Github
-            </a>
-            <FontAwesomeIcon
-              icon={faArrowUpRightFromSquare}
-              color={theme.blue}
-              fontSize={12}
-            />
-          </div>
-        </Links>
+          <Title>{data.title}</Title>
 
-        <Title>{data.title}</Title>
+          <Info>
+            <div>
+              <FontAwesomeIcon
+                icon={faGithub}
+                color={theme['base-label']}
+                fontSize={18}
+              />
+              <Text>{data.user.login}</Text>
+            </div>
 
-        <Info>
-          <div>
-            <FontAwesomeIcon
-              icon={faGithub}
-              color={theme['base-label']}
-              fontSize={18}
-            />
-            <Text>{data.user.login}</Text>
-          </div>
+            <div>
+              <FontAwesomeIcon
+                icon={faCalendarDay}
+                color={theme['base-label']}
+                fontSize={18}
+              />
+              <Text>{createdAt}</Text>
+            </div>
 
-          <div>
-            <FontAwesomeIcon
-              icon={faCalendarDay}
-              color={theme['base-label']}
-              fontSize={18}
-            />
-            <Text>{createdAt}</Text>
-          </div>
+            <div>
+              <FontAwesomeIcon
+                icon={faComment}
+                color={theme['base-label']}
+                fontSize={18}
+              />
+              <Text>{data.comments} comentários</Text>
+            </div>
+          </Info>
+        </PostInfo>
+      </PostInfoContainer>
 
-          <div>
-            <FontAwesomeIcon
-              icon={faComment}
-              color={theme['base-label']}
-              fontSize={18}
-            />
-            <Text>{data.comments} comentários</Text>
-          </div>
-        </Info>
-      </PostInfo>
+      <Content>
+        <Markdown>{data.body}</Markdown>
+      </Content>
     </PostContainer>
   )
 }
