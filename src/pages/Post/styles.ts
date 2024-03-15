@@ -116,6 +116,14 @@ export const Content = styled.div`
     }
   }
 
+  ol {
+    margin: 10px 15px;
+
+    li {
+      line-height: 160%;
+    }
+  }
+
   code {
     display: flex;
     padding: 16px;
