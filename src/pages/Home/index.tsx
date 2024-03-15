@@ -78,9 +78,6 @@ export function Home() {
 
   async function fetchPosts(query?: string) {
     const response = await api.get('search/issues', {
-      headers: {
-        Accept: 'application/vnd.github+json',
-      },
       params: {
         sort: 'created',
         order: 'desc',
