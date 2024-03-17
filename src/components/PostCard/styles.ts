@@ -8,6 +8,7 @@ export const PostCardContainer = styled.div`
 
   div {
     display: flex;
+    justify-content: space-between;
     gap: 16px;
     margin-bottom: 20px;
   }
@@ -16,6 +17,14 @@ export const PostCardContainer = styled.div`
 
   &:hover {
     border: 2px solid ${({ theme }) => theme['base-label']};
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 364px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 300px;
   }
 `
 
@@ -32,6 +41,26 @@ export const Title = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+
+  @media only screen and (max-width: 900px) {
+    width: 470px;
+  }
+
+  @media only screen and (max-width: 685px) {
+    width: 564px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 464px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 220px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 150px;
+  }
 `
 
 export const Created = styled.span`
@@ -49,7 +78,6 @@ export const Resume = styled.span`
   max-width: 352px;
 
   height: 130px;
-  width: 352px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
@@ -58,5 +86,25 @@ export const Resume = styled.span`
   a {
     color: ${({ theme }) => theme.blue};
     text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 900px) {
+    max-width: 552px;
+  }
+
+  @media only screen and (max-width: 685px) {
+    max-width: 480px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 400px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 300px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 200px;
   }
 `

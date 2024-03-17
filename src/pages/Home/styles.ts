@@ -18,6 +18,43 @@ export const HomeContainer = styled.div`
         color: ${({ theme }) => theme['base-label']};
       }
     }
+
+    @media only screen and (max-width: 900px) {
+      max-width: 664px;
+      margin: -55px auto;
+    }
+
+    @media only screen and (max-width: 685px) {
+      input {
+        margin: 0 auto;
+        width: 564px;
+      }
+    }
+
+    @media only screen and (max-width: 585px) {
+      input {
+        margin: 0 auto;
+        width: 464px;
+      }
+    }
+
+    @media only screen and (max-width: 485px) {
+      margin: -35px auto;
+
+      input {
+        margin: 0 auto;
+        width: 364px;
+      }
+    }
+
+    @media only screen and (max-width: 385px) {
+      margin: -25px auto;
+
+      input {
+        margin: 0 auto;
+        width: 300px;
+      }
+    }
   }
 `
 
@@ -30,12 +67,61 @@ export const Profile = styled.div`
   padding: 32px 40px;
   background: ${({ theme }) => theme['base-profile']};
   border-radius: 10px;
+
+  @media only screen and (max-width: 900px) {
+    width: 664px;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 685px) {
+    width: 564px;
+    padding: 22px 20px;
+    gap: 22px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 464px;
+    padding: 22px 20px;
+    gap: 22px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 364px;
+    padding: 12px 12px;
+    gap: 12px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 280px;
+    padding: 12px 12px;
+    gap: 12px;
+  }
 `
 
 export const Avatar = styled.img`
   height: 148px;
   width: 148px;
   border-radius: 100px;
+
+  @media only screen and (max-width: 900px) {
+    height: 128px;
+    width: 128px;
+  }
+
+  @media only screen and (max-width: 685px) {
+    height: 90px;
+    width: 90px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    height: 80px;
+    width: 80px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    height: 60px;
+    width: 60px;
+  }
 `
 
 export const NameContainer = styled.div`
@@ -63,6 +149,19 @@ export const NameContainer = styled.div`
     color: ${({ theme }) => theme.blue};
     text-decoration: none;
   }
+
+  @media only screen and (max-width: 485px) {
+    div {
+      svg {
+        height: 8px;
+        width: 8px;
+      }
+    }
+
+    a {
+      font-size: 0.6rem;
+    }
+  }
 `
 
 export const Name = styled.p`
@@ -71,6 +170,18 @@ export const Name = styled.p`
   color: ${({ theme }) => theme['base-title']};
   font-weight: bold;
   line-height: 160%;
+
+  @media only screen and (max-width: 685px) {
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: 585px) {
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 485px) {
+    font-size: 0.8rem;
+  }
 `
 
 export const Bio = styled.p`
@@ -82,6 +193,32 @@ export const Bio = styled.p`
   margin-bottom: 24px;
 
   width: 612px;
+
+  @media only screen and (max-width: 900px) {
+    width: 452px;
+  }
+
+  @media only screen and (max-width: 685px) {
+    width: 400px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 300px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 200px;
+    font-size: 0.8rem;
+
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 150px;
+    font-size: 0.5rem;
+
+    margin-bottom: 10px;
+  }
 `
 
 export const Info = styled.div`
@@ -93,6 +230,24 @@ export const Info = styled.div`
     align-items: center;
     gap: 8px;
   }
+
+  @media only screen and (max-width: 485px) {
+    gap: 14px;
+
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 385px) {
+    gap: 10px;
+
+    svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
 `
 
 export const Text = styled.p`
@@ -101,12 +256,38 @@ export const Text = styled.p`
   color: ${({ theme }) => theme['base-subtitle']};
   font-weight: normal;
   line-height: 160%;
+
+  @media only screen and (max-width: 485px) {
+    font-size: 0.8rem;
+  }
+
+  @media only screen and (max-width: 385px) {
+    font-size: 0.5rem;
+  }
 `
 
 export const PublicationsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 72px;
+
+  @media only screen and (max-width: 685px) {
+    width: 564px;
+    margin: 72px auto 0px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 464px;
+    margin: 72px auto 0px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 364px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 300px;
+  }
 `
 
 export const Publications = styled.span`
@@ -128,8 +309,29 @@ export const NumbersOfPublications = styled.span`
 export const SectionPost = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 22px;
 
   margin-top: 48px;
   margin-bottom: 100px;
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (max-width: 685px) {
+    width: 564px;
+    margin: 48px auto 100px;
+  }
+
+  @media only screen and (max-width: 585px) {
+    width: 464px;
+  }
+
+  @media only screen and (max-width: 485px) {
+    width: 364px;
+  }
+
+  @media only screen and (max-width: 385px) {
+    width: 300px;
+  }
 `
